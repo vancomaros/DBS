@@ -22,7 +22,7 @@ public class Arthur extends Application{
         this.primaryStage = primaryStage;
 
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Arthur");
         primaryStage.setScene(new Scene(root, 635, 400));
         primaryStage.show();
         dataConnector.DatabseInit();

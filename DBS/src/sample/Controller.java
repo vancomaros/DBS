@@ -27,7 +27,7 @@ public class Controller{
     private void Register(ActionEvent event) throws SQLException, IOException, Exception {
         Parent root = FXMLLoader.load(getClass().getResource("registration.fxml"));
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(new Scene(root, 580, 400));
+        window.setScene(new Scene(root, 635, 400));
         window.show();
     }
 
