@@ -11,6 +11,6 @@
     <orderEntry type="library" exported="" name="javafx" level="project" />
     <orderEntry type="library" exported="" name="lib" level="application" />
     <orderEntry type="library" exported="" name="legal" level="application" />
-    <orderEntry type="library" name="javafaker-0.12" level="project" />
+    <orderEntry type="library" exported="" name="javafaker-0.12" level="project" />
   </component>
 </module>

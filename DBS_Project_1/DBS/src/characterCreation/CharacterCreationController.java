@@ -1,7 +1,6 @@
 package characterCreation;
 
-import Database.DatabaseConnector;
-import javafx.event.ActionEvent;
+import database.DatabaseConnector;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,11 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import Character.Character;
+import character.Character;
 import menu.MenuController;
 
-import javax.swing.*;
-import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,9 +32,8 @@ public class CharacterCreationController implements Initializable {
     private int playerId;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        race_id.getItems().addAll("Human","Maros","Goblin","Shemale");
-        class_id.getItems().addAll("David","Warrior","Porn star");
-
+        race_id.getItems().addAll("Demon","Orc","Goblin","Human");
+        class_id.getItems().addAll("Paladin","Warrior","Rugue", "Hunter", "Mage");
 
     }
 
