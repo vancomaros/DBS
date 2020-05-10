@@ -8,8 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
@@ -27,8 +30,11 @@ public class RegController {
     @FXML
     private TextField email;
 
+//    @FXML
+//    private RadioButton server1;
+
     @FXML
-    public void register(ActionEvent event) throws IOException {
+    public void register(ActionEvent event) throws IOException, SQLException {
 
 
         Alert a = new Alert(AlertType.NONE);
@@ -38,10 +44,11 @@ public class RegController {
         String passwC = passCheck.getText();
         String mail = email.getText();
 
-        if (name.length() < 20) {
+        if (name.length() > 20) {
             a.setAlertType(AlertType.WARNING);
             a.setHeaderText("Username is too long!");
             a.show();
+            return;
         }
 
         if (passw.equals(passwC) && (!name.equals(""))) {

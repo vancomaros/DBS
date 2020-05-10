@@ -18,9 +18,9 @@
        </ImageView>
       <TableView fx:id="tabView" layoutX="39.0" layoutY="100.0" onMouseClicked="#chooseItem" prefHeight="191.0" prefWidth="541.0">
         <columns>
-          <TableColumn fx:id="name" prefWidth="154.0" text="Name" />
-            <TableColumn fx:id="level" prefWidth="69.0" text="Level" />
-            <TableColumn fx:id="type" prefWidth="177.0" text="Type" />
+          <TableColumn fx:id="name" prefWidth="184.0" text="Name" />
+            <TableColumn fx:id="level" prefWidth="88.0" text="Level" />
+            <TableColumn fx:id="type" prefWidth="128.0" text="Type" />
             <TableColumn fx:id="rarity" prefWidth="138.0" text="Rarity" />
         </columns>
       </TableView>

@@ -61,3 +61,11 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (character_item_id, itemid, cid);
+
+SET GLOBAL local_infile = 1;
+LOAD DATA LOCAL INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/server.csv' INTO TABLE game_server
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"' 
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(server_id, server_name, no_players_active, max_players, game_server_status);

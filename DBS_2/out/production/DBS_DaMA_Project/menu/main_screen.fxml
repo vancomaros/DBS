@@ -31,8 +31,8 @@
         <ImageView fx:id="image" fitHeight="105.0" fitWidth="105.0" layoutX="476.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
 
         </ImageView>
-        <Button fx:id="btn_set_next_offset" layoutX="152.0" layoutY="329.0" mnemonicParsing="false" onAction="#incrementOffset" prefHeight="25.0" prefWidth="66.0" text="Next" />
-        <Button fx:id="btn_set_prev_offset" layoutX="67.0" layoutY="329.0" mnemonicParsing="false" onAction="#decrementOffset" prefHeight="25.0" prefWidth="66.0" text="Previous" />
+        <Button fx:id="btn_set_next_offset" layoutX="152.0" layoutY="329.0" mnemonicParsing="false" onAction="#incrementOffset" prefHeight="25.0" prefWidth="83.0" text="Next →" />
+        <Button fx:id="btn_set_prev_offset" layoutX="50.0" layoutY="329.0" mnemonicParsing="false" onAction="#decrementOffset" prefHeight="25.0" prefWidth="83.0" text="← Previous" />
         <Label fx:id="char_name" layoutX="474.0" layoutY="57.0" prefHeight="17.0" prefWidth="105.0" />
         <Label layoutX="344.0" layoutY="365.0" text="Level">
          <font>

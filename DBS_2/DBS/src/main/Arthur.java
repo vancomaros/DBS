@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
 
 
 public class Arthur extends Application{
@@ -26,7 +27,7 @@ public class Arthur extends Application{
 
     }
 
-    public int loginUser(String username, String password) {
+    public int loginUser(String username, String password) throws SQLException {
         DatabaseConnector databaseConnector = new DatabaseConnector();
         databaseConnector.DatabseInit();
         int flag = databaseConnector.checkUser(username, password);

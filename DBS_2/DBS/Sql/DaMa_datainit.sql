@@ -4,6 +4,7 @@ USE dbs_projekt;
 
 CREATE TABLE dbs_projekt.guild (
 	guild_id int not null AUTO_INCREMENT,
+    guild_name varchar(100),
 	number_of_players int,
 	guild_rank int,
     primary key (guild_id)
@@ -13,7 +14,7 @@ DEFAULT CHARSET=utf8;
 
 CREATE TABLE dbs_projekt.player (
     player_id int not null AUTO_INCREMENT,
-    player_name varchar(20),
+    player_name varchar(30),
     player_password varchar(20),
 	email varchar(50),
     no_characters int,
@@ -77,7 +78,7 @@ DEFAULT CHARSET=utf8;
 
 CREATE TABLE dbs_projekt.quest (
     quest_id int not null AUTO_INCREMENT,
-    quest_name varchar(30),
+    quest_name varchar(40),
     required_level int not null,
     reward_money int,
     reward_xp int not null,

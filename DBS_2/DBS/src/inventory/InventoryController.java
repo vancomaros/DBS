@@ -18,6 +18,7 @@ import menu.MenuController;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryController {
@@ -38,8 +39,8 @@ public class InventoryController {
     private int itemId;
     private int itemLvl;
     private ResultSet resultSet;
-    DatabaseConnector databaseConnector = new DatabaseConnector();
-    ObservableList<ModelTab> oblist = FXCollections.observableArrayList();
+    private DatabaseConnector databaseConnector = new DatabaseConnector();
+    private ObservableList<ModelTab> oblist = FXCollections.observableArrayList();
     private Alert a = new Alert(Alert.AlertType.NONE);
     private List<Integer> lst = null;
 
@@ -52,7 +53,6 @@ public class InventoryController {
 
     public void getItems(int id) {
         try {
-            int iter = 0;
             databaseConnector.DatabseInit();
             lst = databaseConnector.getItems(id);
         } catch (SQLException e)
@@ -68,7 +68,7 @@ public class InventoryController {
         if (t == 1)
             type = "Helmet";
         else if (t == 2)
-            type = "Body";
+            type = "Shirt";
         else if (t == 3)
             type = "Boots";
         else type = "Gloves";
@@ -85,13 +85,13 @@ public class InventoryController {
         rarity.setCellValueFactory(new PropertyValueFactory<>("Rarity"));
         try {
             for (Integer i: lst) {
-                resultSet = databaseConnector.getItemInfo(i);
-
-                while (resultSet.next())
-                    oblist.add(new ModelTab(resultSet.getString("item_name"),
-                            Integer.toString(resultSet.getInt("item_level")),
-                            getType(resultSet.getInt("item_type")),
-                            resultSet.getString("item_rarity")));
+                ArrayList<ArrayList<String>> aList = databaseConnector.getItemInfo(i);
+                for (int k = 0; k < aList.size(); k++) {
+                    oblist.add(new ModelTab(aList.get(k).get(1),
+                            aList.get(k).get(2),
+                            getType(Integer.parseInt(aList.get(k).get(3))),
+                            aList.get(k).get(4)));
+                }
             }
         }
         catch (SQLException e)
@@ -143,7 +143,7 @@ public class InventoryController {
         try {
             if (itemLvl > 4) {
                 a.setAlertType(Alert.AlertType.INFORMATION);
-                a.setHeaderText("Item has maximum level!");
+                a.setHeaderText("Item is fully upgraded!");
                 a.show();
                 return;
             }
@@ -176,7 +176,4 @@ public class InventoryController {
         }
         getItems(char_id);
     }
-
-    // TODO item bude v tabulke 5 krat s inym levelom
-    // TODO make items with numbers to make them unique
 }

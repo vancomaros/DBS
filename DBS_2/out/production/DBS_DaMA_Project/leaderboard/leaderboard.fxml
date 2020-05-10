@@ -19,11 +19,11 @@
       <ChoiceBox fx:id="lbChoiceBox" layoutX="24.0" layoutY="14.0" onAction="#selectFilter" prefWidth="150.0" />
       <TableView fx:id="lbTable" layoutX="24.0" layoutY="46.0" prefHeight="308.0" prefWidth="552.0">
         <columns>
-            <TableColumn fx:id="lbFirstCol" prefWidth="75.0" text="Rank" />
-            <TableColumn fx:id="lbSecondCol" prefWidth="75.0" text="Player" />
-            <TableColumn fx:id="lbThirdCol" prefWidth="75.0" text="XP" />
-            <TableColumn fx:id="lbFourthCol" prefWidth="75.0" text="col1" />
-            <TableColumn fx:id="lbFifthCol" prefWidth="75.0" text="col2" />
+            <TableColumn fx:id="lbFirstCol" prefWidth="129.0" text="Player" />
+            <TableColumn fx:id="lbSecondCol" prefWidth="100.0" text="AVG Experience" />
+            <TableColumn fx:id="lbThirdCol" prefWidth="105.0" text="Best character" />
+            <TableColumn fx:id="lbFourthCol" prefWidth="109.0" text="NoCharacters" />
+            <TableColumn fx:id="lbFifthCol" prefWidth="89.0" text="Character XP" />
         </columns>
       </TableView>
       <Button fx:id="lbNext" layoutX="521.0" layoutY="14.0" mnemonicParsing="false" onAction="#incrementOffset" text="Next →" />

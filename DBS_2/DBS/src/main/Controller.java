@@ -50,7 +50,7 @@ public class Controller{
      * After login is done it displays alert based on value that was returned
      */
     @FXML
-    private void Login(ActionEvent event) throws IOException {
+    private void Login(ActionEvent event) throws IOException, SQLException {
 
         Arthur arthur = new Arthur();
         int id = arthur.loginUser(username.getText(), pass.getText());

@@ -18,10 +18,14 @@ import javafx.stage.Stage;
 import menu.MenuController;
 import menu.ModelTable;
 
+import javax.print.attribute.standard.NumberUp;
+import java.awt.geom.Rectangle2D;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class LeaderboardController implements Initializable {
@@ -88,15 +92,19 @@ public class LeaderboardController implements Initializable {
         lbThirdCol.setCellValueFactory(new PropertyValueFactory<>("bestCharacter"));
         lbFourthCol.setCellValueFactory(new PropertyValueFactory<>("numberCharacter"));
         lbFifthCol.setCellValueFactory(new PropertyValueFactory<>("bestExperience"));
+
         try {
-            ResultSet resultSet = connector.bestPlayers(offset);
-            while (resultSet.next())
-            {
-                oblist.add(new LbModelTable(resultSet.getString("player_name"),
-                        resultSet.getString("character_name"),
-                        resultSet.getFloat("AvgExperience"),
-                        resultSet.getInt("NoCharacters"),
-                        resultSet.getInt("character_xp")));
+            ArrayList<ArrayList<String>> aList = connector.bestPlayers(offset);
+            if (aList != null) {
+
+                for (int i = 0; i < aList.size(); i++) {
+                    oblist.add(new LbModelTable(aList.get(i).get(0),
+                            aList.get(i).get(1),
+                            Float.valueOf(aList.get(i).get(2)),
+                            Integer.parseInt(aList.get(i).get(3)),
+                            Integer.parseInt(aList.get(i).get(4))));
+
+                }
             }
         }catch (SQLException e)
         {
@@ -119,19 +127,21 @@ public class LeaderboardController implements Initializable {
         lbFifthCol.setCellValueFactory(new PropertyValueFactory<>("bestExperience"));
 
         try {
-            ResultSet resultSet = connector.bestGuild(offset);
-            while (resultSet.next())
-            {
-                oblist.add(new LbModelTable(resultSet.getString("Guild_Name"),
-                        "",
-                        resultSet.getInt("no_players"),
-                        resultSet.getInt("AMOUNT_OF_GOLD"),
-                        0));
+            ArrayList<ArrayList<String>> aList = connector.bestGuild(offset);
+
+            if (aList != null) {
+                for (int i = 0; i < aList.size(); i++) {
+                    oblist.add(new LbModelTable(aList.get(i).get(0),
+                            "",
+                            Float.valueOf(aList.get(i).get(1)),
+                            Integer.parseInt(aList.get(i).get(2)),
+                            0));
+                }
             }
-        }catch (SQLException e)
-        {
-            System.out.println(e);
-        }
+            }catch(SQLException e)
+            {
+                System.out.println(e);
+            }
         lbTable.setItems(oblist);
     }
 
